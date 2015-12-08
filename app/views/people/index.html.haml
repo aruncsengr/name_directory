@@ -1,0 +1,29 @@
+- if @people.any?
+  .pull-left
+    = render 'search_form'
+  .pull-right
+    = link_to 'New Person', new_person_path, class: "btn btn-primary"
+  .clearfix
+  %br
+  .table-responsive
+    %table.table.table-striped
+      %thead
+        %tr
+          %th Name
+          %th Age
+          %th Actions
+
+      %tbody
+        - @people.each do |person|
+          %tr
+            %td= link_to person.name, person
+            %td= person.age
+            %td
+              = link_to 'Edit', edit_person_path(person)
+              |
+              = link_to 'Destroy', person, :method => :delete, :data => { :confirm => 'Are you sure?' }
+- else
+  .alert.alert-warning
+    .text-center
+      People are not added yet! Please add a
+      = link_to 'new person', new_person_path

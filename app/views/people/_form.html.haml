@@ -1,0 +1,9 @@
+= simple_form_for @person, class: "form-horizontal" do |f|
+  .row
+    .col-xs-10
+      = f.input :name
+  .row
+    .col-xs-2
+      = f.input :age, input_html: { maxlength: 3}
+  = f.button :submit, class: "btn btn-success"
+  = link_to 'Back', people_path, class: "btn btn-default"

@@ -1,0 +1,15 @@
+- if notice.present?
+  .alert.alert-success{role: "alert"}
+    %button.close{type: "button", data: {dismiss: "alert"}, "aria-label" => "Close"}
+      %span{"aria-hidden" => "true"} &times
+    = notice
+.panel.panel-default
+  .panel-heading
+    %h3.panel-title Person Details
+  .panel-body
+    Name: #{@person.name}
+    %br
+    Age: #{@person.age}
+.text-center
+  = link_to 'Edit', edit_person_path(@person), class: "btn btn-primary"
+  = link_to 'Back', people_path, class: "btn btn-default"
