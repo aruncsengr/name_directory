@@ -4,8 +4,6 @@ class PeopleController < ApplicationController
   # GET /people
   # GET /people.json
   def index
-    # @people = Person.all
-
     respond_to do |format|
       format.html { @people = Person.search(params[:search_term]) }
       format.json { render json: {data: Person.pluck(:name)} }
